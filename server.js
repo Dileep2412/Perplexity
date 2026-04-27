@@ -1,8 +1,11 @@
 import "dotenv/config";
 import app from './src/app.js';
 import connectDB from './src/config/database.js';
+import { testAI } from "./src/service/ai.service.js";
 
 const PORT = process.env.PORT || 3000;
+
+testAI()
 
 connectDB().catch((err) => {
     console.error("MongoDB connection failed:", err);
