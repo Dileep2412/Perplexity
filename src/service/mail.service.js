@@ -1,31 +1,27 @@
 import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        type: 'OAuth2',
-        user: process.env.GOOGLE_USER,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-        clientId: process.env.GOOGLE_CLIENT_ID
-    }
-})
-
-transporter.verify()
-    .then(() => { console.log("Email transporter is ready to send emails"); })
-    .catch((err) => { console.error("Email transporter verification failed:", err); });
-
+function createTransporter() {
+    return nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            type: 'OAuth2',
+            user: process.env.GOOGLE_USER,
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+        }
+    });
+}
 
 export async function sendEmail({ to, subject, html, text }) {
-
-    const mailOptions = {
+    const transporter = createTransporter();
+    const details = await transporter.sendMail({
         from: process.env.GOOGLE_USER,
-        to,
-        subject,
-        html,
-        text
-    };
+        to: to,
+        subject: subject,
+        html: html,
+        text: text
+    });
 
-    const details = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", details);
+    return details; // ✅ Sirf return — res bilkul nahi
 }

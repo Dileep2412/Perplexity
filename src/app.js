@@ -1,7 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config(); // must be FIRST before anything else
+
 import express from 'express';
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.routes.js";
-
 
 const app = express();
 
