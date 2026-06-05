@@ -20,15 +20,15 @@ const Login = () => {
     }
 
     return (
-        <section className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black px-4 py-10 text-zinc-100 sm:px-6 lg:px-8">
+        <section className="min-h-screen bg-zinc-950 px-4 py-10 text-zinc-100 sm:px-6 lg:px-8">
             <div className="mx-auto flex min-h-[85vh] w-full max-w-5xl items-center justify-center">
-                <div className="w-full max-w-md rounded-2xl border border-red-500/20 bg-slate-900/70 p-8 shadow-2xl shadow-black/50 backdrop-blur-md">
+                <div className="w-full max-w-md rounded-2xl border border-[#31b8c6]/40 bg-zinc-900/70 p-8 shadow-2xl shadow-black/50 backdrop-blur">
 
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-red-400 via-red-500 to-red-700 bg-clip-text text-transparent">
+                    <h1 className="text-3xl font-bold text-[#31b8c6]">
                         Welcome Back
                     </h1>
 
-                    <p className="mt-2 text-sm text-zinc-400">
+                    <p className="mt-2 text-sm text-zinc-300">
                         Sign in with your email and password.
                     </p>
 
@@ -48,7 +48,7 @@ const Login = () => {
                                 onChange={(event) => setEmail(event.target.value)}
                                 placeholder="you@example.com"
                                 required
-                                className="w-full rounded-lg border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition-all duration-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/30"
+                                className="w-full rounded-lg border border-zinc-700 bg-zinc-950/80 px-4 py-3 text-zinc-100 outline-none transition focus:border-[#31b8c6]"
                             />
                         </div>
 
@@ -67,23 +67,23 @@ const Login = () => {
                                 onChange={(event) => setPassword(event.target.value)}
                                 placeholder="Enter your password"
                                 required
-                                className="w-full rounded-lg border border-slate-700 bg-slate-800 px-4 py-3 text-white placeholder-slate-500 outline-none transition-all duration-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/30"
+                                className="w-full rounded-lg border border-zinc-700 bg-zinc-950/80 px-4 py-3 text-zinc-100 outline-none transition focus:border-[#31b8c6]"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full rounded-lg bg-gradient-to-r from-red-500 via-red-600 to-red-700 px-4 py-3 font-semibold text-white transition-all duration-300 hover:from-red-600 hover:via-red-700 hover:to-red-800 hover:shadow-lg hover:shadow-red-500/25"
+                            className="w-full rounded-lg bg-[#31b8c6] px-4 py-3 font-semibold text-zinc-950 transition hover:bg-[#45c7d4]"
                         >
                             Login
                         </button>
                     </form>
 
-                    <p className="mt-6 text-center text-sm text-zinc-400">
+                    <p className="mt-6 text-center text-sm text-zinc-300">
                         Don't have an account?{" "}
                         <Link
                             to="/register"
-                            className="font-semibold text-red-400 transition hover:text-red-300"
+                            className="font-semibold text-[#31b8c6] hover:text-[#45c7d4]"
                         >
                             Register
                         </Link>
